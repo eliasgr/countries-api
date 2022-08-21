@@ -1,11 +1,11 @@
 const Header = () => {
 	return (
 		<>
-			<div className='flex h-20 justify-between bg-white p-5 shadow-md'>
-				<div className='text-3xl font-bold text-blue-3'>
+			<div className='flex h-20 items-center justify-between bg-white p-5 shadow-md'>
+				<div className='text-lg font-bold text-blue-3'>
 					<h1>Where in the world ?</h1>
 				</div>
-				<div className=' flex items-center space-x-2  text-2xl font-semibold text-blue-3 '>
+				<div className=' text-md flex items-center  space-x-2 font-semibold text-blue-3 '>
 					<span>
 						<svg
 							xmlns='http://www.w3.org/2000/svg'
