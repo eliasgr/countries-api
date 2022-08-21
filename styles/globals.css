@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+	body {
+		@apply bg-gray-1;
+		@apply font-nunito-sans;
+	}
 	@font-face {
 		font-family: 'Nunito Sans';
 		font-style: normal;
