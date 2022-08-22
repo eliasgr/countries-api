@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
+import CountriesDetail from '../components/CountriesDetail';
 import Country from '../components/Country';
 import Filter from '../components/Filter';
 import Header from '../components/Header';
@@ -16,9 +17,11 @@ const Home: NextPage = () => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 			<Header />
+
 			<Search />
 			<Filter />
 			<Country />
+			{/* <CountriesDetail /> */}
 		</div>
 	);
 };
