@@ -1,27 +1,34 @@
 /* eslint-disable @next/next/no-img-element */
-const Country = () => {
+
+import Link from 'next/link';
+import { CountryModel } from '../types/CountryType';
+
+const Country = (country: CountryModel) => {
 	return (
-		<div className='my-10 mx-auto h-96 max-w-xs overflow-hidden rounded-md shadow-lg '>
-			<div className='h-2/5 w-full'>
-				<img
-					className='h-full w-full'
-					src='https://flagcdn.com/et.svg'
-					alt='ethiopian flag'
-				/>
+		<Link href='/'>
+			<div className='my-10 mx-auto h-96 max-w-xs cursor-pointer overflow-hidden rounded-md shadow-lg '>
+				<div className='h-2/5 w-full'>
+					<img
+						className='h-full w-full'
+						src={country.flags.svg}
+						alt={country.name.common}
+					/>
+				</div>
+				<div className='m-5 font-bold text-blue-3'>
+					<h3 className='pb-4 text-lg  '>{country.name.common}</h3>
+					<p>
+						Population:
+						<span className='pl-1 text-gray-2'>{country.population}</span>
+					</p>
+					<p>
+						Region:<span className='pl-1 text-gray-2'>{country.region}</span>
+					</p>
+					<p>
+						Capital:<span className='pl-1 text-gray-2'>{country.capital}</span>
+					</p>
+				</div>
 			</div>
-			<div className='m-5 font-bold text-blue-3'>
-				<h3 className='pb-4 text-lg  '>Ethiopia</h3>
-				<p>
-					Population:<span className='pl-1 text-gray-2'>110,000,000</span>
-				</p>
-				<p>
-					Region:<span className='pl-1 text-gray-2'>Africa</span>
-				</p>
-				<p>
-					Capital:<span className='pl-1 text-gray-2'>Addis Ababa</span>
-				</p>
-			</div>
-		</div>
+		</Link>
 	);
 };
 
