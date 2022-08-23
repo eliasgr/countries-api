@@ -59,6 +59,7 @@ const Home = ({ countries }: PageProps) => {
 					placeholder='Search for countries...'
 				/>
 			</div>
+			{/* <Filter /> */}
 			<div className='w-48'>
 				<select
 					title='SelectRegion'
@@ -72,7 +73,7 @@ const Home = ({ countries }: PageProps) => {
 					<option value='DE'>Oceania</option>
 				</select>
 			</div>
-			{/* <Filter /> */}
+
 			{filteredcountries.map((country, index) => (
 				<div key={index}>
 					<Country {...country} />
