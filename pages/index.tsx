@@ -1,25 +1,18 @@
-import type { GetServerSideProps, NextPage } from 'next';
+import type { GetServerSideProps } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
-import CountriesDetail from '../components/CountriesDetail';
+import { useState } from 'react';
 import Country from '../components/Country';
-import Filter from '../components/Filter';
 import Header from '../components/Header';
-import Search from '../components/Search';
-import styles from '../styles/Home.module.css';
 import { CountryModel } from '../types/CountryType';
 
 export type PageProps = {
 	countries: CountryModel[];
 };
 const Home = ({ countries }: PageProps) => {
-	// const [countryList, setCountryList] = useState<CountryModel[]>([]);
-	// setCountryList(countries);
-	const [serachTerm, setSearchTerm] = useState<string>('');
+	const [searchTerm, setSearchTerm] = useState<string>('');
 
 	let filteredcountries = countries.filter((country) =>
-		country.name.common.toLowerCase().includes('united')
+		country.name.common.toLowerCase().includes(searchTerm)
 	);
 
 	const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
