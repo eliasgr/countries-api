@@ -3,16 +3,16 @@ import Head from 'next/head';
 import { useState } from 'react';
 import Country from '../components/Country';
 import Header from '../components/Header';
-import { CountryModel } from '../types/CountryType';
+import { CountryType } from '../types/CountryType';
 
 export type PageProps = {
-	countries: CountryModel[];
+	countries: CountryType[];
 };
 const Home = ({ countries }: PageProps) => {
 	const [searchTerm, setSearchTerm] = useState<string>('');
 
 	let filteredcountries = countries.filter((country) =>
-		country.name.common.toLowerCase().includes(searchTerm)
+		country.name.toLowerCase().includes(searchTerm)
 	);
 
 	const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,11 +81,11 @@ export const getServerSideProps: GetServerSideProps = async (
 	pageContext: any
 ) => {
 	const pageNumber = pageContext.query.id;
-	const apiUrl = 'http://localhost:3000/data.json';
+	const apiUrl = 'http://localhost:3000/data-v2.json';
 
 	const apiResponse = await fetch(apiUrl).then((res) => res.json());
 	// console.log(apiResponse);
-	const countries: CountryModel[] = apiResponse;
+	const countries: CountryType[] = apiResponse;
 	console.log(countries[1]);
 	return {
 		props: {

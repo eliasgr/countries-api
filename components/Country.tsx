@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 
 import Link from 'next/link';
-import { CountryModel } from '../types/CountryType';
+import { CountryType } from '../types/CountryType';
 
-const Country = (country: CountryModel) => {
+const Country = (country: CountryType) => {
 	return (
 		<Link href='/'>
 			<div className='my-10 mx-auto h-96 max-w-xs cursor-pointer overflow-hidden rounded-md shadow-lg '>
@@ -11,11 +11,11 @@ const Country = (country: CountryModel) => {
 					<img
 						className='h-full w-full'
 						src={country.flags.svg}
-						alt={country.name.common}
+						alt={country.name}
 					/>
 				</div>
 				<div className='m-5 font-bold text-blue-3'>
-					<h3 className='pb-4 text-lg  '>{country.name.common}</h3>
+					<h3 className='pb-4 text-lg  '>{country.name}</h3>
 					<p>
 						Population:
 						<span className='pl-1 text-gray-2'>{country.population}</span>
