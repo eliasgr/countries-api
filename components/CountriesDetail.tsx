@@ -6,7 +6,7 @@ import router from 'next/router';
 
 const CountriesDetail = (country: CountryType) => {
 	return (
-		<div className='m-10 mx-auto  max-w-xs md:max-w-full '>
+		<div className='my-10 mx-auto max-w-xs  md:mx-10 md:max-w-full '>
 			<button
 				onClick={() => router.push('/')}
 				type='button'
@@ -80,19 +80,21 @@ const CountriesDetail = (country: CountryType) => {
 							</p>
 							<p className='mb-2'>
 								Languages:{' '}
-								<span className='text-gray-2'>
+								<span>
 									[
 									{country.languages.map((language, index) => (
-										<span key={index}>{language.name}</span>
+										<span className='text-gray-2' key={index}>
+											{language.name}
+										</span>
 									))}
 									]
 								</span>
 							</p>
 						</div>
 					</div>
-					<div className='mt-10 items-center  gap-2  md:flex'>
-						<div className='text-lg'>Border Countries:</div>
-						<div className='mt-4 grid grid-cols-3 gap-1 md:grid-cols-6'>
+					<div className='mt-10 items-center justify-evenly gap-2  md:flex '>
+						<div className=' text-lg'>Border Countries:</div>
+						<div className='mt-4 grid grid-cols-3 gap-1  md:mt-0 md:grid-cols-6'>
 							{country.borders?.map((border, index) => (
 								<button
 									key={index}
