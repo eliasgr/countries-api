@@ -6,7 +6,7 @@ import { CountryType } from '../types/CountryType';
 const Country = (country: CountryType) => {
 	return (
 		<Link href={`/${country.name}`}>
-			<div className='my-10 mx-auto h-96 max-w-xs cursor-pointer overflow-hidden rounded-md bg-white shadow-lg '>
+			<div className='my-10 mx-auto h-[320px] max-w-xs cursor-pointer overflow-hidden rounded-md bg-white shadow-lg '>
 				<div className='h-2/5 w-full'>
 					<img
 						className='h-full w-full'
