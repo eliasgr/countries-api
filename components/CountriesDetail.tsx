@@ -1,11 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import React from 'react';
+import { CountryType } from '../types/CountryType';
+import router from 'next/router';
 
-const CountriesDetail = () => {
+const CountriesDetail = (country: CountryType) => {
 	return (
-		<div className='m-10 max-w-xs'>
+		<div className='m-10 mx-auto max-w-xs'>
 			<button
+				onClick={() => router.push('/')}
 				type='button'
 				className='rounded-md bg-white px-5 py-2 text-blue-3 shadow-2xl drop-shadow-2xl  '
 			>
@@ -30,61 +33,71 @@ const CountriesDetail = () => {
 			<div className='mt-20'>
 				<img
 					className='h-full w-full'
-					src='https://flagcdn.com/et.svg'
-					alt='ethiopian flag'
+					src={country.flags.svg}
+					alt={`flag of ${country.name}`}
 				/>
 			</div>
 			<div className='font-bole mt-10 text-sm font-bold text-blue-3'>
 				<div>
-					<h1 className='mb-5 text-2xl '>Ethiopia</h1>
+					<h1 className='mb-5 text-2xl '>{country.name}</h1>
 					<p className='mb-2 '>
-						Native Name: <span className='text-gray-2'>native name</span>
+						Native Name:{' '}
+						<span className='text-gray-2'>{country.nativeName}</span>
 					</p>
 					<p className='mb-2'>
-						Population: <span className='text-gray-2'>native name</span>
+						Population:{' '}
+						<span className='text-gray-2'>{country.population}</span>
 					</p>
 					<p className='mb-2'>
-						Region: <span className='text-gray-2'>native name</span>
+						Region: <span className='text-gray-2'>{country.region}</span>
 					</p>
 					<p className='mb-2'>
-						Sub Region: <span className='text-gray-2'>native name</span>
+						Sub Region: <span className='text-gray-2'>{country.subRegion}</span>
 					</p>
 					<p className='mb-2'>
-						Capital: <span className='text-gray-2'>native name</span>
+						Capital: <span className='text-gray-2'>{country.capital}</span>
 					</p>
 				</div>
 				<div className='mt-10'>
 					<p className='mb-2'>
-						Top Level Domain: <span className='text-gray-2'>native name</span>
+						Top Level Domain:{' '}
+						<span className='text-gray-2'>{country.topLevelDomain}</span>
 					</p>
 					<p className='mb-2'>
-						Currencies: <span className='text-gray-2'>native name</span>
+						Currencies:{' '}
+						<span>
+							[
+							{country.currencies.map((currency, index) => (
+								<span key={index} className='text-gray-2'>
+									{currency.name}
+								</span>
+							))}
+							]
+						</span>
 					</p>
 					<p className='mb-2'>
-						Languages: <span className='text-gray-2'>native name</span>
+						Languages:{' '}
+						<span className='text-gray-2'>
+							[
+							{country.languages.map((language, index) => (
+								<span key={index}>{language.name}</span>
+							))}
+							]
+						</span>
 					</p>
 				</div>
 				<div className='mt-10'>
 					<h2 className='text-lg'>Border Countries:</h2>
-					<div className='mt-4 flex gap-2'>
-						<button
-							className='rounded bg-white px-5 py-2 shadow-lg drop-shadow-2xl'
-							type='button'
-						>
-							France
-						</button>
-						<button
-							className=' rounded bg-white px-5 py-2 shadow-lg drop-shadow-2xl'
-							type='button'
-						>
-							France
-						</button>
-						<button
-							className='rounded bg-white px-5 py-2 shadow-lg drop-shadow-2xl'
-							type='button'
-						>
-							France
-						</button>
+					<div className=' mt-4 grid grid-cols-3 gap-1'>
+						{country.borders?.map((border, index) => (
+							<button
+								key={index}
+								className='rounded bg-white px-5 py-2 shadow-lg drop-shadow-2xl'
+								type='button'
+							>
+								{border}
+							</button>
+						))}
 					</div>
 				</div>
 			</div>

@@ -12,7 +12,8 @@ export type CountryType = {
 	currencies: CurrencyType[];
 	languages: LanguageType[];
 	flags: {
-		png: 'https://flagcdn.com/w320/kw.png';
-		svg: 'https://flagcdn.com/kw.svg';
+		png: string;
+		svg: string;
 	};
+	borders: string[];
 };

@@ -3,12 +3,10 @@ import Head from 'next/head';
 import { useState } from 'react';
 import Country from '../components/Country';
 import Header from '../components/Header';
+import { CountryProps } from '../types/CountryPropsType';
 import { CountryType } from '../types/CountryType';
 
-export type PageProps = {
-	countries: CountryType[];
-};
-const Home = ({ countries }: PageProps) => {
+const Home = ({ countries }: CountryProps) => {
 	const [searchTerm, setSearchTerm] = useState<string>('');
 
 	let filteredcountries = countries.filter((country) =>
@@ -84,9 +82,7 @@ export const getServerSideProps: GetServerSideProps = async (
 	const apiUrl = 'http://localhost:3000/data-v2.json';
 
 	const apiResponse = await fetch(apiUrl).then((res) => res.json());
-	// console.log(apiResponse);
 	const countries: CountryType[] = apiResponse;
-	console.log(countries[1]);
 	return {
 		props: {
 			countries: countries,
